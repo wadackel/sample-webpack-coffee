@@ -1,5 +1,7 @@
-webpack = require("gulp-webpack").webpack
-path    = require "path"
+webpack            = require("gulp-webpack").webpack
+BowerWebpackPlugin = require "bower-webpack-plugin"
+path               = require "path"
+
 
 module.exports = {
 
@@ -27,9 +29,7 @@ module.exports = {
   # webpack用の各プラグイン
   plugins: [
     # bower.jsonにあるパッケージをrequire出来るように
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin "bower.json", ["main"]
-    )
+    new BowerWebpackPlugin()
   ]
 
 }
